@@ -41,3 +41,8 @@ def obtain_mail_content(mail_):
 
     return ''
 
+def obtain_mail_info(mail_):
+    remitente = mail_['From']
+    fecha = mail_['Date']
+    return remitente, fecha
+
