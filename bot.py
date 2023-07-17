@@ -1,10 +1,11 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 from telegram import Bot
 from telegram.constants import ParseMode
 from dotenv import load_dotenv
 import os
 import json
+import mail_tools
 
 load_dotenv()
 
@@ -30,8 +31,19 @@ intents.message_content = True
 discord_bot = commands.Bot(command_prefix='!', intents=intents)
 telegram_bot = Bot(TELEGRAM_TOKEN)
 
+@tasks.loop(seconds=10)
+async def email_routine():
+    print("Checking Email Routine")
+    for email, password in EMAILS.items():
+        print(f"Checking {email}")
+        new_mail = mail_tools.check_emails(email, password, IMAP_SERVER)
+        for mail in new_mail:
+            print(mail)
+            # await telegram_bot.send_message(DEV_TELEGRAM_GROUP_ID, text=mail, parse_mode=ParseMode.MARKDOWN_V2)
+
 @discord_bot.event
 async def on_ready():
+    email_routine.start()
     print(f'Bot de Discord listo: {discord_bot.user.name}')
 
 @discord_bot.event
