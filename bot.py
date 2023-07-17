@@ -20,6 +20,10 @@ if DISCORD_CHANNEL_IDS:
 if DISCORD_TEST_CHANNEL_ID:
     DISCORD_TEST_CHANNEL_ID = int(DISCORD_TEST_CHANNEL_ID)
 
+IMAP_SERVER = os.getenv('IMAP_SERVER')
+EMAILS_JSON = os.getenv('EMAILS')
+EMAILS = json.loads(EMAILS_JSON)
+
 intents = discord.Intents.default()
 intents.message_content = True
 
