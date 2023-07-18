@@ -11,7 +11,7 @@ load_dotenv()
 
 print(os.environ)
 
-DISCORD_TOKEN = os.environ.get['DISCORD_TOKEN']
+DISCORD_TOKEN = os.environ['DISCORD_TOKEN']
 TELEGRAM_TOKEN = os.environ['TELEGRAM_TOKEN']
 DEV_TELEGRAM_GROUP_ID = os.environ['DEV_TELEGRAM_GROUP_ID']
 DISCORD_TEST_CHANNEL_ID = os.environ['DISCORD_TEST_CHANNEL_ID']
