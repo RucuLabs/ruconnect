@@ -33,7 +33,7 @@ intents.message_content = True
 discord_bot = commands.Bot(command_prefix='!', intents=intents)
 telegram_bot = Bot(TELEGRAM_TOKEN)
 
-@tasks.loop(seconds=10)
+@tasks.loop(minutes=10)
 async def email_routine():
     print("Checking Email Routine")
     for email, password in EMAILS.items():
