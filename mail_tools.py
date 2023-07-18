@@ -26,7 +26,8 @@ def check_emails(user, password, imap_host):
             mail_ = BytesParser().parsebytes(raw_email)
             email_content = obtain_mail_content(mail_)
             email_sender, email_date, email_subject = obtain_mail_info(mail_)
-            email_structured = [email_content, email_sender, email_date, email_subject]
+            email_name, email_email = parse_sender_info(email_sender)
+            email_structured = [email_content, email_name, email_email, email_date, email_subject]
             new_mail.append(email_structured)
 
         imap.logout()
@@ -35,6 +36,13 @@ def check_emails(user, password, imap_host):
     except Exception as e:
         print('Error:', str(e))
         return []
+
+def parse_sender_info(sender):
+    name, addr = email.utils.parseaddr(sender)
+    decoded_name = email.header.decode_header(name)[0][0]
+    if isinstance(decoded_name, bytes):
+        decoded_name = decoded_name.decode('utf-8')
+    return decoded_name, addr
 
 def obtain_mail_content(mail_):
 
