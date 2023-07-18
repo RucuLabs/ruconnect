@@ -9,6 +9,8 @@ import mail_tools
 
 load_dotenv()
 
+print(os.environ)
+
 DISCORD_TOKEN = os.environ.get['DISCORD_TOKEN']
 TELEGRAM_TOKEN = os.environ['TELEGRAM_TOKEN']
 DEV_TELEGRAM_GROUP_ID = os.environ['DEV_TELEGRAM_GROUP_ID']
@@ -24,8 +26,6 @@ if DISCORD_TEST_CHANNEL_ID:
 IMAP_SERVER = os.environ['IMAP_SERVER']
 EMAILS_JSON = os.environ['EMAILS']
 EMAILS = json.loads(EMAILS_JSON)
-
-print(os.environ)
 
 intents = discord.Intents.default()
 intents.message_content = True
