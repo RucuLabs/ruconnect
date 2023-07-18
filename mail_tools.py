@@ -53,7 +53,7 @@ def obtain_mail_content(mail_):
                 content = part.get_payload(decode=True).decode(part.get_content_charset())
                 return content
     else:
-        content = mail_.get_payload(decode=True).decode(email_message.get_content_charset())
+        content = mail_.get_payload(decode=True).decode(mail_.get_content_charset())
         return content
 
     return ''
