@@ -38,8 +38,9 @@ async def email_routine():
         print(f"Checking {email}")
         new_mail = mail_tools.check_emails(email, password, IMAP_SERVER)
         for mail in new_mail:
-            print(mail)
-            # await telegram_bot.send_message(DEV_TELEGRAM_GROUP_ID, text=mail, parse_mode=ParseMode.MARKDOWN_V2)
+            content, name, addr, date, subject = mail
+            text = f"<b>EMAIL - {email}</b> \n <b>{date}</b> \n <b>{addr} : {name}</b> \n\n {content}"
+            await telegram_bot.send_message(DEV_TELEGRAM_GROUP_ID, text=text, parse_mode=ParseMode.HTML)
 
 @discord_bot.event
 async def on_ready():
@@ -54,8 +55,8 @@ async def on_message(message):
         guild = message.guild
         content = message.content
         author = message.author.global_name
-        text = f"**DISCORD: {guild}** \n **{author}:** " + content
-        await telegram_bot.send_message(DEV_TELEGRAM_GROUP_ID, text=text, parse_mode=ParseMode.MARKDOWN_V2)
+        text = f"<b>DISCORD - {guild}</b> \n <b>{author}:</b> " + content
+        await telegram_bot.send_message(DEV_TELEGRAM_GROUP_ID, text=text, parse_mode=ParseMode.HTML)
     
     await discord_bot.process_commands(message)
 
