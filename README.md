@@ -16,3 +16,8 @@ DISCORD_CHANNEL_IDS = "[CHANNEL_ID, ANOTHER_CHANNEL_ID, ...]"
 IMAP_SERVER = IMAP_SERVER
 EMAILS = '{"user1@domain": "pass1", "user2@domain": "pass2", ...}'
 ```
+
+## TODOs
+- Add setup instructions
+- Explain usage
+- Explain how to get some of the env vars
