@@ -1,6 +1,9 @@
 # RuConnect
 Discord and Telegram bot designed to streamline management and facilitate effective communication within a small development team.
 
+## Dependencies
+- Python 3.11.3
+
 ## Configuration
 Here is an example for your `.env` file.
 
