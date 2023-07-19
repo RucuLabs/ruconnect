@@ -39,7 +39,7 @@ async def email_routine():
         new_mail = mail_tools.check_emails(email, password, IMAP_SERVER)
         for mail in new_mail:
             content, name, addr, date, subject = mail
-            text = f"<b>EMAIL - {email}</b> \n <b>{date}</b> \n <b>{addr} : {name}</b> \n\n {content}"
+            text = f"<b>EMAIL - {email}</b> \n <b>{date}</b> \n <b>{addr} : {name}</b> \n <b>{subject}</b>\n\n {content}"
             await telegram_bot.send_message(DEV_TELEGRAM_GROUP_ID, text=text, parse_mode=ParseMode.HTML)
 
 @discord_bot.event
