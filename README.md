@@ -3,6 +3,8 @@ Discord and Telegram bot designed to streamline management and facilitate effect
 
 ## Dependencies
 - Python 3.11.3
+- Discord.py
+- python-telegram-bot
 
 ## Configuration
 Here is an example for your `.env` file.
