@@ -1,6 +1,9 @@
 # RuConnect
 Discord and Telegram bot designed to streamline management and facilitate effective communication within a small development team.
 
+## Why?
+RuConnects is a platform designed to facilitate connections between your small development team and the people you collaborate with, even when they use different communication channels such as Discord or Email.
+
 ## Dependencies
 - Python 3.11.3
 - Discord.py
