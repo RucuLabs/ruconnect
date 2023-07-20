@@ -12,6 +12,9 @@ You can connect:
 With:
 - One telegram group
 
+## How?
+Every message or mail that is sent to your chosen discord channels or emails will be sent to a telegram group of your choice.
+
 ## Dependencies
 - Python 3.11.3
 - Discord.py
